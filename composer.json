@@ -17,6 +17,7 @@
         "marcosadantas/authexpressive": "dev-master",
         "marcosadantas/expressive-laravelvalidation": "dev-master",
         "marcosadantas/expressive-redis": "dev-master",
+        "monolog/monolog": "^2.0@dev",
         "roave/security-advisories": "dev-master",
         "symfony/console": "^4.1@dev",
         "zendframework/zend-component-installer": "^1.0",

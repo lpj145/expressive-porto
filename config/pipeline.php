@@ -38,7 +38,10 @@ $app->pipeRoutingMiddleware();
 $app->pipe(ImplicitHeadMiddleware::class);
 $app->pipe(ImplicitOptionsMiddleware::class);
 $app->pipe(UrlHelperMiddleware::class);
-$app->pipe(\App\Containers\Consumers\Middlewares\AuthorizeConsumer::class);
+
+$app->pipe(\App\Ship\Logger\Middleware\LoggerMiddleware::class);
+// If you needed api public keys authorization, active uncomment this middleware!
+//$app->pipe(\App\Containers\Consumers\Middlewares\AuthorizeConsumer::class);
 
 // Add more middleware here that needs to introspect the routing results; this
 // might include:

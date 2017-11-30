@@ -4,9 +4,16 @@ namespace App\Ship\Provides;
 use App\Ship\Migrator\Commands\ListMigrations;
 use App\Ship\Migrator\MigratorCommand;
 
-class ShipCommandsProvider
+class ShipCommandsProvider extends AbstractProvider
 {
-    public function __invoke()
+    protected function dependencies(): array
+    {
+        return [
+
+        ];
+    }
+
+    protected function config()
     {
         return [
             'commands' => [

@@ -12,6 +12,8 @@ $container = new ServiceManager();
 
 // Inject config
 $container->setService('config', $config);
+// Abstract Factory
+$container->addAbstractFactory(new \Zend\ServiceManager\AbstractFactory\ConfigAbstractFactory());
 //Initialize Database Manager
 $container->get(\Illuminate\Database\Capsule\Manager::class);
 
