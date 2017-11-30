@@ -7,29 +7,32 @@ use App\Containers\Authentication\Data\Factories\UserCacheFactory;
 use App\Containers\Authentication\Data\Model\UserModel;
 use App\Containers\Authentication\Data\Repositories\UserRepository;
 use App\Containers\Authentication\UI\API\Controller\ListUsersController;
+use App\Ship\Cache\Cache;
+use App\Ship\Provides\AbstractProvider;
 use AuthExpressive\Interfaces\DatabaseInterface;
 use AuthExpressive\Interfaces\StorageInterface;
+use Predis\Client;
 
-class MainProvider
+class MainProvider extends AbstractProvider
 {
-    public function __invoke()
-    {
-        return [
-            'dependencies' => $this->getDependencies()
-        ];
-    }
-
-    public function getDependencies()
+    protected function dependencies(): array
     {
         return [
             'invokables' => [
                 DatabaseInterface::class => UserRepository::class,
-
-                UserRepository::class => UserRepository::class
+                UserRepository::class => UserRepository::class,
             ],
-            'factories' => [
-                StorageInterface::class => UserCacheFactory::class,
-                ListUsersController::class => ListUsersControllerFactory::class,
+            'aliases' => [
+                StorageInterface::class => Cache::class
+            ]
+        ];
+    }
+
+    protected function abstract_factories(): array
+    {
+        return [
+            ListUsersController::class => [
+                UserRepository::class
             ]
         ];
     }

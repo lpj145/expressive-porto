@@ -1,9 +1,10 @@
 <?php
 namespace App\Ship\Cache;
 
+use AuthExpressive\Interfaces\StorageInterface;
 use Predis\Client;
 
-class Cache
+class Cache implements StorageInterface
 {
     const DEFAULT_TTL = 3600;
     /**
@@ -34,5 +35,10 @@ class Cache
     public function has($key) : bool
     {
         return (bool)$this->client->exists($key);
+    }
+
+    public function delete($key)
+    {
+        return $this->client->del($key);
     }
 }
