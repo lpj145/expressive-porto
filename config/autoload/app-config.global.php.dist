@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'apiName' => '',
+
+    'redis' => [
+        'options' => [
+            'prefix' => 'api:'
+        ]
+    ],
+    \AuthExpressive\AuthExpressive::class => [
+        'secret' => 'd98jwqd87quwhwq87udhqwd98wqhdwqd89hqwo'
+    ],
+    'database' => [
+        'mongodb' => [
+            'driver'   => 'mongodb',
+            'host'     => 'localhost',
+            'port'     => 27017,
+            'database' => 'api_base',
+            'options'  => [
+                'database' => 'admin' // sets the authentication database required by mongo 3
+            ]
+        ]
+    ]
+];
