@@ -14,7 +14,7 @@ $container = new ServiceManager();
 $container->setService('config', $config);
 // Abstract Factory
 $container->addAbstractFactory(new \Zend\ServiceManager\AbstractFactory\ConfigAbstractFactory());
-//Initialize Database Manager
+//Initialize everything Database Manager ( Laravel )
 $container->get(\Illuminate\Database\Capsule\Manager::class);
 
 return $container;
