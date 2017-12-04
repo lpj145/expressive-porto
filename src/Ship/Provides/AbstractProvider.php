@@ -7,11 +7,10 @@ abstract class AbstractProvider
 {
     public function __invoke()
     {
-        return [
-            'dependencies' => $this->dependencies(),
-            $this->config(),
-            ConfigAbstractFactory::class => $this->abstract_factories(),
-        ];
+        $services['dependencies'] = $this->dependencies();
+        $services[ConfigAbstractFactory::class] = $this->abstract_factories();
+        $services = array_merge($services, $this->config());
+        return $services;
     }
 
     abstract protected function dependencies():array;
