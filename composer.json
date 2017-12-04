@@ -1,15 +1,15 @@
 {
-    "name": "zendframework/zend-expressive-skeleton",
-    "description": "Zend expressive skeleton. Begin developing PSR-7 middleware applications in seconds!",
+    "name": "marcosadantas/expressive-porto",
+    "description": "Porto pattern application with zend expressive",
     "type": "project",
-    "homepage": "https://github.com/zendframework/zend-expressive-skeleton",
-    "license": "BSD-3-Clause",
+    "homepage": "https://github.com/lpj145/expressive-porto",
+    "license": "MIT",
     "config": {
         "sort-packages": true
     },
     "minimum-stability": "dev",
     "require": {
-        "php": "^5.6 || ^7.0",
+        "php": "^7.0",
         "http-interop/http-middleware": "^0.4.1",
         "illuminate/database": "5.5.2",
         "illuminate/pagination": "5.5.2",
